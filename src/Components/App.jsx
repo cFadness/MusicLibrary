@@ -8,7 +8,25 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
+            musicArray: []
         };
+    }
+
+    componentDidMount(){
+        this.requestMusicData();
+    }
+
+    async requestMusicData(){
+        try{
+            let musicData = await axios.get('http://www.devcodecampmusiclibrary.com/api/music')
+            console.log(musicData)
+            this.setState({
+                musicArray: musicData
+            })
+        }
+        catch(err){
+            console.log("Error in API call to music library")
+        }
     }
 
     render(){
