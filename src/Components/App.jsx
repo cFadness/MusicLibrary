@@ -3,6 +3,7 @@ import axios from 'axios';
 import TitleBar from './TitleBar/TitleBar';
 import FilterSongsTitle from './FilterSongsTitle/FilterSongsTitle';
 import TableOfSongsTitle from './TableOfSongsTitle/TableOfSongsTitle';
+import TableOfSongs from './TableOfSongs/TableOfSongs'
 
 class App extends Component {
     constructor(props){
@@ -19,13 +20,13 @@ class App extends Component {
     async requestMusicData(){
         try{
             let musicData = await axios.get('http://www.devcodecampmusiclibrary.com/api/music')
-            console.log(musicData)
+            console.log(musicData.data)
             this.setState({
-                musicArray: musicData
+                musicArray: musicData.data
             })
         }
         catch(err){
-            console.log("Error in API call to music library")
+            console.log("Error in API call to music library", err)
         }
     }
 
@@ -35,6 +36,7 @@ class App extends Component {
                 <TitleBar/>
                 <FilterSongsTitle/>
                 <TableOfSongsTitle/>
+                <TableOfSongs arrayOfSongs = {this.state.musicArray}/>
             </div>
         )
     }
