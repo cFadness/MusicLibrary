@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import axios from 'axios';
+import TitleBar from './TitleBar/TitleBar';
+import FilterSongsTitle from './FilterSongsTitle/FilterSongsTitle';
+import TableOfSongsTitle from './TableOfSongsTitle/TableOfSongsTitle';
 
 class App extends Component {
     constructor(props){
@@ -10,6 +14,9 @@ class App extends Component {
     render(){
         return(
             <div>
+                <TitleBar/>
+                <FilterSongsTitle/>
+                <TableOfSongsTitle/>
             </div>
         )
     }
