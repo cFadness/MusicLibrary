@@ -9,12 +9,8 @@ class FilterForm extends Component{
             album: '',
             artist: '',
             genre: '',
-            releaseDate: '',
+            releaseDate: ''
         }
-    }
-
-    componentDidMount(){
-        //handleSubmit function logic to push musicArray to tempMusicArray
     }
 
     handleChange = (event) => {
@@ -25,9 +21,6 @@ class FilterForm extends Component{
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.setState({
-            
-        })
         this.props.theFilterFunction(this.state);
     }
 

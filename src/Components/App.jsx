@@ -20,26 +20,36 @@ class App extends Component {
     }
 
     filterFunction = (inputObject) => {
-        let tempArray = this.state.musicArray.filter((songObject) => {
-            if(songObject.title == inputObject.title || songObject.artist == inputObject.artist || songObject.album == inputObject.album || songObject.genre == inputObject.genre || songObject.releaseDate == inputObject.releaseDate || object.values(inputObject) === []){
-                return true
-            }
-            else{
-                return false
-            }
-        });
-        this.setState({
-            tempMusicArray: tempArray
-        })
+        if(inputObject.title === '' && inputObject.artist === '' && inputObject.album === '' && inputObject.genre === '' && inputObject.releaseDate === ''){
+            this.setState({
+                tempMusicArray: this.state.musicArray
+            })
+        }
+        else{
+            let tempArray = this.state.musicArray.filter((songObject) => {
+                if(songObject.title === inputObject.title || songObject.artist === inputObject.artist || songObject.album === inputObject.album || songObject.genre === inputObject.genre || songObject.releaseDate === inputObject.releaseDate){
+                    return true
+                }
+                else{
+                    return false
+                }
+            });
+            console.log(this.state)
+            console.log(tempArray)
+            this.setState({
+                tempMusicArray: tempArray
+            })
+        }
     }
 
-    async requestMusicData(){
+   async requestMusicData() {
         try{
             let musicData = await axios.get('http://www.devcodecampmusiclibrary.com/api/music')
-            console.log(musicData.data)
+            console.log(`musicData variable, now has the data from axios ${musicData.data}`)
             this.setState({
-                musicArray: musicData.data
-            })
+                musicArray: musicData.data,
+                tempMusicArray: musicData.data
+            });
         }
         catch(err){
             console.log("Error in API call to music library", err)
@@ -51,7 +61,7 @@ class App extends Component {
             <div>
                 <TitleBar/>
                 <FilterSongsTitle/>
-                <FilterForm theFilterFunction = {this.filterFunction()}/>
+                <FilterForm theFilterFunction = {this.filterFunction}/>
                 <TableOfSongsTitle/>
                 <TableOfSongs arrayOfSongs = {this.state.tempMusicArray}/>
             </div>
