@@ -1,10 +1,9 @@
 import React from 'react';
+import './FilterSongsTitle.css';
 
 const FilterSongsTitle = (props) => {
     return (
-        <div>
-            <h2>Filter Songs By:</h2>
-        </div>
+            <h4>Filter Songs By:</h4>
     );
 }
  

@@ -1,10 +1,9 @@
 import React from 'react';
+import './TitleBar.css'
 
 const TitleBar = (props) => {
     return (
-        <div>
-            <h1>My Music Library</h1>
-        </div>
+        <h1>My Music Library</h1>
     );
 }
  

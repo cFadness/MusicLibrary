@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './TableOfSongs.css';
 
 const TableOfSongs = (props) => {
     let music = props.arrayOfSongs.map((element) => {

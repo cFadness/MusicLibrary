@@ -5,6 +5,7 @@ import FilterSongsTitle from './FilterSongsTitle/FilterSongsTitle';
 import TableOfSongsTitle from './TableOfSongsTitle/TableOfSongsTitle';
 import TableOfSongs from './TableOfSongs/TableOfSongs';
 import FilterForm from './FilterForm/FilterForm';
+import './App.css';
 
 class App extends Component {
     constructor(props){
@@ -20,22 +21,20 @@ class App extends Component {
     }
 
     filterFunction = (inputObject) => {
-        if(inputObject.title === '' && inputObject.artist === '' && inputObject.album === '' && inputObject.genre === '' && inputObject.releaseDate === ''){
+        if(inputObject.title === null && inputObject.artist === null && inputObject.album === null && inputObject.genre === null && inputObject.releaseDate === null){
             this.setState({
                 tempMusicArray: this.state.musicArray
             })
         }
         else{
             let tempArray = this.state.musicArray.filter((songObject) => {
-                if(songObject.title === inputObject.title || songObject.artist === inputObject.artist || songObject.album === inputObject.album || songObject.genre === inputObject.genre || songObject.releaseDate === inputObject.releaseDate){
+                if(songObject.title.startsWith(inputObject.title) || songObject.artist.startsWith(inputObject.artist) || songObject.album.startsWith(inputObject.album) || songObject.genre.startsWith(inputObject.genre) || songObject.releaseDate.startsWith(inputObject.releaseDate)){
                     return true
                 }
                 else{
                     return false
                 }
             });
-            console.log(this.state)
-            console.log(tempArray)
             this.setState({
                 tempMusicArray: tempArray
             })
@@ -58,12 +57,32 @@ class App extends Component {
 
     render(){
         return(
-            <div>
-                <TitleBar/>
-                <FilterSongsTitle/>
-                <FilterForm theFilterFunction = {this.filterFunction}/>
-                <TableOfSongsTitle/>
-                <TableOfSongs arrayOfSongs = {this.state.tempMusicArray}/>
+            <div className="container">
+                <div className="row-1">
+                    <div className="col-md-offset-3 col-md-6">
+                        <TitleBar/>
+                    </div>
+                </div>
+                <div className="row-2">
+                    <div className="col-md-offset-3 col-md-6">
+                        <FilterSongsTitle/>
+                    </div>
+                </div>
+                <div className="row-3">
+                    <div className="col-md-offset-3 col-md-6">
+                        <FilterForm theFilterFunction = {this.filterFunction}/>
+                    </div>
+                </div>
+                <div className="row-4">
+                    <div className="col-md-offset-3 col-md-6">
+                        <TableOfSongsTitle/>
+                    </div>
+                </div>
+                <div className="row-5">
+                    <div className="col-md-offset-3 col-md-6">
+                        <TableOfSongs arrayOfSongs = {this.state.tempMusicArray}/>
+                    </div>
+                </div>
             </div>
         )
     }
