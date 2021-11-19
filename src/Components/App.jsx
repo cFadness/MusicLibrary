@@ -21,7 +21,7 @@ class App extends Component {
     }
 
     filterFunction = (inputObject) => {
-        if(inputObject.search === null || inputObject.search === ''){
+        if(inputObject.search === ''){
             this.setState({
                 tempMusicArray: this.state.musicArray
             })

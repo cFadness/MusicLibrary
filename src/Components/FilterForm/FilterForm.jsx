@@ -6,8 +6,8 @@ class FilterForm extends Component{
     constructor(props){
         super(props);
         this.state={
-            search: null,
-            searchBy: null
+            search: '',
+            searchBy: ''
         }
     }
 
@@ -29,7 +29,7 @@ class FilterForm extends Component{
             <form onSubmit={this.handleSubmit}>
                 <div>
                     <select name="searchBy" onChange={this.handleChange} className="form-select form-control" aria-label="Default select example">
-                        <option selected value={null}>Filter songs by...</option>
+                        <option selected value={''}>Filter songs by...</option>
                         <option value={"title"}>Title</option>
                         <option value={"album"}>Album</option>
                         <option value={"artist"}>Artist</option>
