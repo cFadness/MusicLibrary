@@ -16,16 +16,20 @@ const TableOfSongs = (props) => {
     });
 
     return (
-        <table>
-            <tr>
-                <th>Song ID</th>
-                <th>Title</th>
-                <th>Artist</th>
-                <th>Album</th>
-                <th>Genre</th>
-                <th>Release Date</th>
-            </tr>
-            {music}
+        <table className="table table-striped">
+            <thead>
+                <tr>
+                    <th>Song ID</th>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Album</th>
+                    <th>Genre</th>
+                    <th>Release Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {music}
+            </tbody>
         </table>
     );
 }

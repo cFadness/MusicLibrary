@@ -21,14 +21,14 @@ class App extends Component {
     }
 
     filterFunction = (inputObject) => {
-        if(inputObject.title === null && inputObject.artist === null && inputObject.album === null && inputObject.genre === null && inputObject.releaseDate === null){
+        if(inputObject.search === null || inputObject.search === ''){
             this.setState({
                 tempMusicArray: this.state.musicArray
             })
         }
         else{
             let tempArray = this.state.musicArray.filter((songObject) => {
-                if(songObject.title.startsWith(inputObject.title) || songObject.artist.startsWith(inputObject.artist) || songObject.album.startsWith(inputObject.album) || songObject.genre.startsWith(inputObject.genre) || songObject.releaseDate.startsWith(inputObject.releaseDate)){
+                if((songObject.title.startsWith(inputObject.search) && inputObject.searchBy==="title") || (songObject.artist.startsWith(inputObject.search) && inputObject.searchBy==="artist") || (songObject.album.startsWith(inputObject.search) && inputObject.searchBy==="album") || (songObject.genre.startsWith(inputObject.search) && inputObject.searchBy==="genre") || (songObject.releaseDate.startsWith(inputObject.search) && inputObject.searchBy==="releaseDate")){
                     return true
                 }
                 else{
@@ -57,29 +57,29 @@ class App extends Component {
 
     render(){
         return(
-            <div className="container">
+            <div className="my-container">
                 <div className="row-1">
-                    <div className="col-md-offset-3 col-md-6">
+                    <div className="col-md-12">
                         <TitleBar/>
                     </div>
                 </div>
                 <div className="row-2">
-                    <div className="col-md-offset-3 col-md-6">
+                    <div className="col-md-12">
                         <FilterSongsTitle/>
                     </div>
                 </div>
                 <div className="row-3">
-                    <div className="col-md-offset-3 col-md-6">
+                    <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
                         <FilterForm theFilterFunction = {this.filterFunction}/>
                     </div>
                 </div>
                 <div className="row-4">
-                    <div className="col-md-offset-3 col-md-6">
+                    <div className="col-md-12">
                         <TableOfSongsTitle/>
                     </div>
                 </div>
                 <div className="row-5">
-                    <div className="col-md-offset-3 col-md-6">
+                    <div className="col-md-12">
                         <TableOfSongs arrayOfSongs = {this.state.tempMusicArray}/>
                     </div>
                 </div>

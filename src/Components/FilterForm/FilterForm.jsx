@@ -6,11 +6,8 @@ class FilterForm extends Component{
     constructor(props){
         super(props);
         this.state={
-            title: null,
-            album: null,
-            artist: null,
-            genre: null,
-            releaseDate: null
+            search: null,
+            searchBy: null
         }
     }
 
@@ -18,7 +15,8 @@ class FilterForm extends Component{
         this.setState({
             [event.target.name]: event.target.value
         });
-        console.log(this.state)
+        console.log("search state equals " + this.state.search)
+        console.log("searchBy state equals " + this.state.searchBy)
     }
 
     handleSubmit = (event) => {
@@ -30,27 +28,18 @@ class FilterForm extends Component{
         return (
             <form onSubmit={this.handleSubmit}>
                 <div>
-                    <label>Title</label>
-                    <input name="title" onChange={this.handleChange} value={this.state.title} />
+                    <select name="searchBy" onChange={this.handleChange} className="form-select form-control" aria-label="Default select example">
+                        <option selected value={null}>Filter songs by...</option>
+                        <option value={"title"}>Title</option>
+                        <option value={"album"}>Album</option>
+                        <option value={"artist"}>Artist</option>
+                        <option value={"genre"}>Genre</option>
+                        <option value={"releaseDate"}>Release Date</option>
+                    </select>
+                    <input name="search" onChange={this.handleChange} value={this.state.search}/>
                 </div>
                 <div>
-                    <label>Artist</label>
-                    <input name="artist" onChange={this.handleChange} value={this.state.artist} />
-                </div>
-                <div>
-                    <label>Album</label>
-                    <input name="album" onChange={this.handleChange} value={this.state.album} />
-                </div>
-                <div>
-                    <label>Genre</label>
-                    <input name="genre" onChange={this.handleChange} value={this.state.genre} />
-                </div>
-                <div>
-                    <label>Release Date</label>
-                    <input name="releaseDate" onChange={this.handleChange} value={this.state.releaseDate} />
-                </div>
-                <div>
-                    <button type="submit">Apply Filters</button>
+                    <button type="submit" className="mt-3">Apply Filter</button>
                 </div>
             </form>
         );
