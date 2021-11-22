@@ -29,23 +29,23 @@ class AddSongForm extends Component{
         return (
             <form onSubmit={this.handleSubmit}>
                 <div>
-                    <label>Title</label>
+                    <label><h6>Title</h6></label>
                     <input name="title" onChange={this.handleChange} value={this.state.title}/>
                 </div>
                 <div>
-                    <label>Album</label>
+                    <label><h6>Album</h6></label>
                     <input name="album" onChange={this.handleChange} value={this.state.album}/>
                 </div>
                 <div>
-                    <label>Artist</label>
+                    <label><h6>Artist</h6></label>
                     <input name="artist" onChange={this.handleChange} value={this.state.artist}/>
                 </div>
                 <div>
-                    <label>Genre</label>
+                    <label><h6>Genre</h6></label>
                     <input name="genre" onChange={this.handleChange} value={this.state.genre}/>
                 </div>
                 <div>
-                    <label>Release Date</label>
+                    <label><h6>Release Date</h6></label>
                     <input name="releaseDate" onChange={this.handleChange} value={this.state.releaseDate}/>
                 </div>
                 <div>

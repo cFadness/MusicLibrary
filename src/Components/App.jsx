@@ -79,28 +79,32 @@ class App extends Component {
                         <TitleBar/>
                     </div>
                 </div>
-                <div className="row-6">
-                    <div className="col-md-12">
-                        <h3>Add New Song</h3>
-                        <AddSongForm theAddNewSong = {this.addNewSong}/>
-                    </div>
-                </div>
                 <div className="row-2">
                     <div className="col-md-12">
-                        <FilterSongsTitle/>
+                        <h4>Add New Song</h4>
                     </div>
                 </div>
                 <div className="row-3">
                     <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-                        <FilterForm theFilterFunction = {this.filterFunction}/>
+                        <AddSongForm theAddNewSong = {this.addNewSong}/>
                     </div>
                 </div>
                 <div className="row-4">
                     <div className="col-md-12">
-                        <TableOfSongsTitle/>
+                        <FilterSongsTitle/>
                     </div>
                 </div>
                 <div className="row-5">
+                    <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                        <FilterForm theFilterFunction = {this.filterFunction}/>
+                    </div>
+                </div>
+                <div className="row-6">
+                    <div className="col-md-12">
+                        <TableOfSongsTitle/>
+                    </div>
+                </div>
+                <div className="row-7">
                     <div className="col-md-12">
                         <TableOfSongs arrayOfSongs = {this.state.tempMusicArray}/>
                     </div>
