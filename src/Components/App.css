@@ -8,26 +8,19 @@
     border-top: 1px solid black;
 }
 
-.row-5{
-    margin-top: -1%;
-    padding-bottom: 1.5%;
-    padding-left: 35%;
-    padding-right: 35%;
-}
-
 .row-6{
     padding-bottom: 3%;
     padding-top: 1%;
     border-top: 1px solid black;
 }
 
-.row-3{
-    padding-bottom: 1.5%;
-    padding-left: 35%;
-    padding-right: 35%;
-}
-
 .row-2{
     margin-bottom: -1%;
     margin-top: 1%;
+}
+
+.row-5{
+    margin-left: 39%;
+    margin-right: 39%;
+    margin-top: -1%;
 }

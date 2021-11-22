@@ -85,7 +85,7 @@ class App extends Component {
                     </div>
                 </div>
                 <div className="row-3">
-                    <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                    <div className="col-lg-6 col-lg-7 mx-auto text-center form p-4">
                         <AddSongForm theAddNewSong = {this.addNewSong}/>
                     </div>
                 </div>
@@ -95,7 +95,7 @@ class App extends Component {
                     </div>
                 </div>
                 <div className="row-5">
-                    <div className="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                    <div className="col-lg-6 col-lg-7 mx-auto text-center form p-4">
                         <FilterForm theFilterFunction = {this.filterFunction}/>
                     </div>
                 </div>
