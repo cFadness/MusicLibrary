@@ -5,6 +5,7 @@ import FilterSongsTitle from './FilterSongsTitle/FilterSongsTitle';
 import TableOfSongsTitle from './TableOfSongsTitle/TableOfSongsTitle';
 import TableOfSongs from './TableOfSongs/TableOfSongs';
 import FilterForm from './FilterForm/FilterForm';
+import AddSongForm from './AddSongForm/AddSongForm';
 import './App.css';
 
 class App extends Component {
@@ -41,9 +42,24 @@ class App extends Component {
         }
     }
 
+    addNewSong = async (inputObject) => {
+        try{
+            let addedSong = await axios.post('http://localhost:3000/api/songs', inputObject)
+            console.log(`Added new song: ${addedSong.data}`)
+            this.state.musicArray.push(addedSong.data)
+            this.setState({
+                musicArray: this.state.musicArray,
+                tempMusicArray: this.state.musicArray
+            })
+        }
+        catch(err){
+            console.log("Error posting to Music Library", err)
+        }
+    }
+
    async requestMusicData() {
         try{
-            let musicData = await axios.get('http://www.devcodecampmusiclibrary.com/api/music')
+            let musicData = await axios.get('http://localhost:3000/api/songs')
             console.log(`musicData variable, now has the data from axios ${musicData.data}`)
             this.setState({
                 musicArray: musicData.data,
@@ -61,6 +77,12 @@ class App extends Component {
                 <div className="row-1">
                     <div className="col-md-12">
                         <TitleBar/>
+                    </div>
+                </div>
+                <div className="row-6">
+                    <div className="col-md-12">
+                        <h3>Add New Song</h3>
+                        <AddSongForm theAddNewSong = {this.addNewSong}/>
                     </div>
                 </div>
                 <div className="row-2">
