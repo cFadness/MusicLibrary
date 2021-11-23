@@ -29,7 +29,13 @@ class App extends Component {
         }
         else{
             let tempArray = this.state.musicArray.filter((songObject) => {
-                if((songObject.title.startsWith(inputObject.search) && inputObject.searchBy==="title") || (songObject.artist.startsWith(inputObject.search) && inputObject.searchBy==="artist") || (songObject.album.startsWith(inputObject.search) && inputObject.searchBy==="album") || (songObject.genre.startsWith(inputObject.search) && inputObject.searchBy==="genre") || (songObject.releaseDate.startsWith(inputObject.search) && inputObject.searchBy==="releaseDate")){
+                if(
+                    (songObject.title.startsWith(inputObject.search) && inputObject.searchBy==="title") ||
+                    (songObject.artist.startsWith(inputObject.search) && inputObject.searchBy==="artist") ||
+                    (songObject.album.startsWith(inputObject.search) && inputObject.searchBy==="album") ||
+                    (songObject.genre.startsWith(inputObject.search) && inputObject.searchBy==="genre") ||
+                    (songObject.releaseDate.startsWith(inputObject.search) && inputObject.searchBy==="releaseDate")
+                    ){
                     return true
                 }
                 else{
